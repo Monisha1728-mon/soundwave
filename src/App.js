@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { PlayerProvider } from "./context/PlayerContext";
+import Sidebar from "./components/Sidebar";
+import TopBar from "./components/TopBar";
+import MainContent from "./components/MainContent";
+import PlayerBar from "./components/PlayerBar";
+import "./App.css";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PlayerProvider>
+      <div className="app-shell">
+        <Sidebar />
+        <div className="app-main">
+          <TopBar />
+          <MainContent />
+        </div>
+        <PlayerBar />
+      </div>
+    </PlayerProvider>
   );
 }
-
-export default App;
